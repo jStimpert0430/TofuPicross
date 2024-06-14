@@ -1,0 +1,364 @@
+html{
+    user-select: none;
+}
+body{
+    /*background: rgb(63,94,251);
+    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);*/
+    margin: 0;
+    font-family: 'Golos Text', sans-serif;
+}
+.UI{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+
+}
+.Grid{
+    box-shadow: 0 0 5vmax black;
+    padding: 0.8vmax;
+    border-radius: 1vmax;
+    border: 2px rgb(12, 12, 12) solid;
+    background-color: rgb(19, 22, 24);
+    display: grid;
+    grid-template-columns: 20vmax repeat(10, 5vmax);
+    grid-template-rows: 15vmax repeat(10, 5vmax);
+    grid-gap: 0.4vmax;
+}
+
+.LeftPanel{
+    transition: 0.2s;
+    position: absolute;
+    display: flex;
+    left: 0;
+    height: fit-content;
+    width:10vw;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.484);
+    border-top-right-radius: 3vw;
+    border-bottom-right-radius: 1vw;
+}
+
+.LeftPanel:hover{
+    transition: 0.2s;
+    padding-left: 20vw;
+}
+
+.RightPanel{
+    transition: 0.2s;
+    position: absolute;
+    display: flex;
+    right: 0;
+    height: 100%;
+    width:10vw;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: rgba(0, 0, 0, 0);
+    border-top-left-radius: 2vw;
+    border-bottom-left-radius: 2vw;
+}
+
+.RightPanel.Active{
+    transition: 0.2s;
+    padding-right: 15vw;
+    background-color: rgba(0, 0, 0, 0.684);
+}
+
+.RightPanel.Active .CircleButton{
+    transition: 0.2s;
+    height: 3vw;
+    width: 10vw;
+    /*margin-top:2vw;*/
+    /*padding-right: 6vw;*/
+    margin-left: 1vw;
+    color: white;
+    margin-top: 2vw;
+}
+
+.RightPanel.Active .CircleButton:hover{
+  width: 11vw;
+}
+
+
+.CircleButton{
+    transition: 0.2s;
+    height: 5vw;
+    width: 5vw;
+    background-color: rgb(59, 112, 141);
+    border-radius: 20vw;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+    margin-left: 3vw;
+    box-shadow: 0 0 1vw black;
+    color: rgb(59, 112, 141);
+    text-align: center;
+    font-size: 2.5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.CircleButton img{
+    width: 4vw;
+}
+
+.RightPanel:not(.Active) .CircleButton:hover{
+    transition: 0.1s;
+    background-color: rgb(49, 96, 121);
+    color:white;
+    margin-left: -1vw;
+    padding-right: 8vw;
+}
+
+.PanelTopBar{
+  display:flex;
+  align-items: center;
+  align-self: start;
+}
+
+.RightPanel.Active .PanelTopBar{
+ /* border-bottom:0.2vw white solid;*/
+}
+
+.RightPanelText{
+  color:antiquewhite;
+  font-size: 1vw;
+  padding-left: 3vw;
+  padding-top:1vw;
+    /*position: absolute;
+    top:2vh;
+    left: 15vw;
+    transition: 0s;
+    font-size: 1vw;
+    color:rgba(250, 235, 215, 0);
+    /*width: 15vw*/
+}
+
+.MenuEntryContainer{
+  display:flex;
+  flex-direction: column;
+  align-items: flex-end;
+  transition: 0.0s;
+  position: absolute;
+  right: -10vw;
+  top: 20vw;
+}
+
+.RightPanel.Active .MenuEntryContainer{
+  transition: 0.2s;
+  position: absolute;
+  right: 2vw;
+  top: 20vw;
+}
+
+.RightPanelMenuEntry{
+  font-size: 2.5vw;
+  color:rgba(250, 235, 215, 0);
+}
+
+.RightPanel.Active .RightPanelMenuEntry{
+  transition: 0.1s;
+  color:antiquewhite;
+}
+
+.RightPanel.Active .RightPanelMenuEntry:hover{
+  transition: 0.1s;
+  border-radius: 4vw;
+  background-color: rgb(3, 63, 63);
+  color:whitesmoke;
+  padding-left: 1vw;
+  padding-right: 1vw;
+}
+
+.RightPanel.Active .RightPanelText{
+    /*transition: 0s;
+    font-size: 1vw;
+    color:antiquewhite;
+    margin-left: 2vw;*/
+}
+
+.CircleButton:hover{
+    background-color: rgb(49, 96, 121);
+    color:white;
+}
+
+.StatsBox{
+    display: flex;
+    justify-items: end;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgba(250, 235, 215, 0.123);
+    border-radius: 0.5vw;
+}
+
+.Timer{
+    font-size: 4vmax;
+    font-weight: 500;
+    color: white;
+}
+
+.Mistakes{
+    font-size: 1.5vmax;
+    color: white;
+}
+
+.Tile{
+    border-radius: 0.3vmax;
+    transition: 0.2s;
+    background-color: rgb(35, 36, 37);
+}
+.Tile:hover{
+    border-radius: 0.5vmax;
+    transition:0s;
+    background-color: rgb(231, 220, 199);
+    /*background:linear-gradient(rgb(231, 220, 199),rgb(117, 111, 99));*/
+}
+
+.Tile.Active{
+    border-radius: 0.5vw;
+    background-color: antiquewhite;
+}
+
+.Tile.Active.MouseDown{
+	transform:scale(1.2);
+	transition: 0.1s;
+	box-shadow: 0 0 2vmax black;
+}
+
+.ColumnCount{
+    border-top-left-radius: 1vw;
+    border-top-right-radius: 1vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 2.5vmax;
+    background-color: rgb(43, 50, 56);
+    color: white;
+    font-family: 'Audiowide', serif;
+    line-height: 75%
+    /*background: rgb(0,0,0);
+    background: linear-gradient(0deg, rgb(34, 39, 44) 0%, rgba(53,62,70,1) 70%, rgba(65,76,85,1) 100%);*/
+}
+
+.ColumnCount a{
+    margin-top: .7vw;
+    margin-bottom: .7vw;
+}
+
+.RowCount{
+    border-bottom-left-radius: 1vw;
+    border-top-left-radius: 1vw;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 2.5vmax;
+    letter-spacing: 1vmax;
+    color: white;
+    background-color: rgb(43, 50, 56);
+        font-family: 'Audiowide', serif;
+    /*background: rgb(0,0,0);
+    background: linear-gradient(270deg, rgb(34, 39, 44) 0%,rgba(53,62,70,1) 48%, rgba(65,76,85,1) 100%);*/
+}
+
+[class*="bg"] {
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index: -1;
+    position:fixed;
+  /*  clip-path: polygon(0 0%, 112% 0, 0 112%, 0 100%);*/
+  /*  clip-path: ellipse(100% 100% at 5% 5%); */
+  }
+  
+  .bgScrollingPattern{
+    background-color: #000e21;
+     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='hexagons' fill='%239aba36' fill-opacity='0.23' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+     /*background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.4'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");    -o-animation:120s scroll infinite linear; */
+    -ms-animation:120s scroll infinite linear;
+    animation:120s scroll infinite linear;
+    background-size: 4vw;
+  }
+
+  .bgScrollingPatternReverse{
+    background-color: #000e2131;
+     /*background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='hexagons' fill='%239aba36' fill-opacity='0.23' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");*/
+     background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.4'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");    -o-animation:120s scroll2 infinite linear;
+    -ms-animation:120s scroll2 infinite linear;
+    animation:120s scroll2 infinite linear;
+    background-size: 10vw;
+  }
+  
+  .bgTint{
+    /*background: radial-gradient(rgba(7, 0, 33, 0.3) 50%, rgba(54, 138, 186, 0.3));*/
+    background: linear-gradient(to right bottom, rgba(7, 0, 33, 0.3) 50%, rgba(54, 138, 186, 0.3));
+  }
+  
+  @-webkit-keyframes scroll{
+    100%{
+      background-position:-300vw -300vw;
+    }
+  }
+  
+  @-moz-keyframes scroll{
+    100%{
+      background-position:-300vw -300vw;
+    }
+  }
+  
+  @-o-keyframes scroll{
+    100%{
+      background-position:-300vw -300vw;
+    }
+  }
+  
+  @-ms-keyframes scroll{
+    100%{
+      background-position:-300vw -300vw;
+    }
+  }
+  
+  @keyframes scroll{
+    100%{
+      background-position:-300vw -300vw;
+    }
+  }
+
+
+  @-webkit-keyframes scroll2{
+    100%{
+      background-position:300vw 300vw;
+    }
+  }
+  
+  @-moz-keyframes scroll2{
+    100%{
+      background-position:300vw 300vw;
+    }
+  }
+  
+  @-o-keyframes scroll2{
+    100%{
+      background-position:300vw 300vw;
+    }
+  }
+  
+  @-ms-keyframes scroll2{
+    100%{
+      background-position:300vw 300vw;
+    }
+  }
+  
+  @keyframes scroll2{
+    100%{
+      background-position:300vw -300vw;
+    }
+  }

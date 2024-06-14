@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <link rel="stylesheet" href="assets/style.css">
+    <title>TofuPicross</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Golos+Text&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet">
+  </head>
+  <body>
+  <div class="bgScrollingPattern"></div>
+  <div class="bgScrollingPatternReverse"></div>
+  <div class="bgTint"></div>
+  </body>
+  <script src="src/Tile.js"></script>
+      <script src="src/RowKey.js"></script>
+    <script src="src/ColumnKey.js"></script>
+  <script src="src/RightPanel.js"></script>
+  <script src="src/StatsPanel.js"></script>
+  <script src="src/Puzzle.js"></script>
+  <script src="src/Grid.js"></script>
+  <script src="src/UI.js"></script>
+  <script src="src/Game.js"></script>
+  <script>
+    let workingElement = document.getElementsByClassName("CircleButton")[0];
+
+    workingElement.addEventListener("click", function(){
+      let workingPanelElement = document.getElementsByClassName("RightPanel")[0];
+      if(!workingPanelElement.classList.contains("Active")){
+        workingPanelElement.classList.add("Active");
+        workingElement.innerHTML = ">"
+      }
+      else{
+        workingPanelElement.classList.remove("Active");
+        workingElement.innerHTML = "<";
+      }
+    })
+  </script>
+</html>
