@@ -17,7 +17,7 @@ class ColumnKey{
 			element.appendChild(workingElement)
 		}
 		if (this.colNum % 2 == 0){
-			element.style.backgroundColor = "rgb(53, 60, 66)";
+			element.classList.add("OddColumn");
 		}
 		
         return element

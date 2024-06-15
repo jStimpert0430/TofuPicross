@@ -17,7 +17,7 @@ class RowKey{
 			element.appendChild(workingElement)
 		}
 		if (this.rowNum % 2 == 0){
-			element.style.backgroundColor = "rgb(53, 60, 66)";
+			element.classList.add("OddRow");
 		}
 		
         return element

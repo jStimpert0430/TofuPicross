@@ -24,9 +24,9 @@ body{
     border: 2px rgb(12, 12, 12) solid;
     background-color: rgb(19, 22, 24);
     display: grid;
-    grid-template-columns: 20vmax repeat(10, 5vmax);
-    grid-template-rows: 15vmax repeat(10, 5vmax);
-    grid-gap: 0.4vmax;
+    grid-template-columns: 20vmax repeat(5, 5vmax) 0.1vmax repeat(5, 5vmax);
+    grid-template-rows: 15vmax repeat(5, 5vmax) 0.1vmax repeat(5, 5vmax);
+    grid-gap: 0.3vmax;
 }
 
 .LeftPanel{
@@ -214,6 +214,20 @@ body{
     transition: 0.2s;
     background-color: rgb(35, 36, 37);
 }
+
+
+
+.Tile.oddTileGroup{
+	background-color: #292d2c
+}
+
+.Tile.SelectedColumn{
+	background-color: #363739;
+}
+
+.Tile.SelectedRow{
+	background-color: #363739;
+}
 .Tile:hover{
     border-radius: 0.5vmax;
     transition:0s;
@@ -253,6 +267,14 @@ body{
     margin-bottom: .7vw;
 }
 
+.ColumnCount.OddColumn{
+	background-color: rgb(53, 60, 66);
+}
+
+.ColumnCount.SelectedColumn{
+	background-color: #8aa4a2;
+}
+
 .RowCount{
     border-bottom-left-radius: 1vw;
     border-top-left-radius: 1vw;
@@ -266,6 +288,14 @@ body{
         font-family: 'Audiowide', serif;
     /*background: rgb(0,0,0);
     background: linear-gradient(270deg, rgb(34, 39, 44) 0%,rgba(53,62,70,1) 48%, rgba(65,76,85,1) 100%);*/
+}
+
+.RowCount.OddRow{
+	background-color: rgb(53, 60, 66);
+}
+
+.RowCount.SelectedRow{
+	background-color: #8aa4a2;
 }
 
 [class*="bg"] {
