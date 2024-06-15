@@ -3,4 +3,4 @@ Tofu picross is a nanogram game written as a webapp written in html/css/pure jav
 
 Please try an in development version of this game at https://picross.tofushop.moe
 
-![Preview](screenshot/ui.gif?raw=true "Preview Screenshot")
+![Preview](screenshot/screenshot.png?raw=true "Preview Screenshot")
