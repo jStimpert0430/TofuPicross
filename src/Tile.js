@@ -7,7 +7,7 @@ class Tile{
         let mouseDown = false;
         let rightMouseDown = false
         
-				document.addEventListener('contextmenu', function(ev) {
+		document.addEventListener('contextmenu', function(ev) {
 			ev.preventDefault();
 		});
 		
@@ -115,8 +115,9 @@ class Tile{
 		else if(this.x > 4 && this.y < 5){
 			element.classList.add("oddTileGroup");
 		}
-		element.classList.add("ColPOS-" + this.x)
+		element.classList.add("ColPOS-" + this.x);
 		element.classList.add("RowPOS-" + this.y);
+		element.style.zIndex = "1";
         return element
     }
 }

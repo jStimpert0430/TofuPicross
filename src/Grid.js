@@ -30,7 +30,10 @@ class Grid{
             gridElement.appendChild(rowKey.element)
             for(let j = 0; j < 10; j++){
                 let workingTile = new Tile(j, i, false);
-                gridElement.appendChild(workingTile.element);
+                let workingContainer = document.createElement("div")
+                workingContainer.classList.add("TileContainer");
+                workingContainer.appendChild(workingTile.element);
+                gridElement.appendChild(workingContainer);
                 if(j == 4){
 				let spacerElement = document.createElement("div");
 				gridElement.appendChild(spacerElement);
