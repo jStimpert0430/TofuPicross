@@ -29,14 +29,11 @@ class Grid{
             let rowKey = new RowKey(i, false, targetPuzzle)
             gridElement.appendChild(rowKey.element)
             for(let j = 0; j < 10; j++){
-                let workingTile = new Tile(j, i, false);
-                let workingContainer = document.createElement("div")
-                workingContainer.classList.add("TileContainer");
-                workingContainer.appendChild(workingTile.element);
-                gridElement.appendChild(workingContainer);
+                let workingContainer = new TileContainer(j, i, false);
+                gridElement.appendChild(workingContainer.element);
                 if(j == 4){
-				let spacerElement = document.createElement("div");
-				gridElement.appendChild(spacerElement);
+					let spacerElement = document.createElement("div");
+					gridElement.appendChild(spacerElement);
 			}
             }
         }

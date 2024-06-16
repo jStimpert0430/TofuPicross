@@ -24,9 +24,9 @@ body{
     border: 2px rgb(12, 12, 12) solid;
     background-color: rgb(19, 22, 24);
     display: grid;
-    grid-template-columns: 20vmax repeat(5, 5vmax) 0.1vmax repeat(5, 5vmax);
-    grid-template-rows: 15vmax repeat(5, 5vmax) 0.1vmax repeat(5, 5vmax);
-    grid-gap: 0.4vmax;
+    grid-template-columns: 20vmax repeat(5, 3vmax) 0.1vmax repeat(5, 3vmax);
+    grid-template-rows: 15vmax repeat(5, 3vmax) 0.1vmax repeat(5, 3vmax);
+    grid-gap: 0.25vmax;
 }
 
 .LeftPanel{
@@ -214,7 +214,12 @@ body{
     transition: 0.15s;
     background-color: rgb(35, 36, 37);
     height:100%;
-    transform: scale(0.825);
+    transform: scale(0.83333333);
+    pointer-events: none;
+}
+
+.Tile:before{
+	transform: scale(1.2);
 }
 
 
@@ -233,7 +238,7 @@ body{
 
 
 .Tile.Active{
-    border-radius: 0.5vw;
+    border-radius: 0.2vw;
     background-color: antiquewhite;
 }
 
@@ -279,7 +284,7 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
-    font-size: 2.5vmax;
+    font-size: 2vmax;
     background-color: rgb(43, 50, 56);
     color: white;
     font-family: 'Audiowide', serif;
@@ -307,7 +312,7 @@ body{
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    font-size: 2.5vmax;
+    font-size: 2vmax;
     letter-spacing: 1vmax;
     color: white;
     background-color: rgb(43, 50, 56);

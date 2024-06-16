@@ -7,7 +7,7 @@ class Tile{
         let mouseDown = false;
         let rightMouseDown = false
         
-		document.addEventListener('contextmenu', function(ev) {
+		/*document.addEventListener('contextmenu', function(ev) {
 			ev.preventDefault();
 		});
 		
@@ -101,7 +101,7 @@ class Tile{
             event.target.classList.remove("MouseDown");
             event.target.classList.add("Moused");
 		}
-        });
+        });*/
         
         
     }
