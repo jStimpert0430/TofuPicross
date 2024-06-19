@@ -3,12 +3,21 @@ class TileContainer{
 		this.x = x;
         this.y = y;
         this.occupied = occupied;
-        this.element = this.constructElement();
-        let mouseDown = false;
-        let rightMouseDown = false
-		
-		
-			
+        this.mouseDown = false;
+        this.rightMouseDown = false
+		this.element = this.constructElement();
+		this.bindElementInput();
+	}
+	
+	constructElement(){
+		let workingContainer = document.createElement("div");
+		workingContainer.classList.add("TileContainer");
+		let workingTile = new Tile(this.x, this.y, this.occupied);
+		workingContainer.appendChild(workingTile.element);
+		return workingContainer;
+	}
+
+	bindElementInput(){
 		document.addEventListener('contextmenu', function(ev) {
 			ev.preventDefault();
 		});
@@ -16,10 +25,10 @@ class TileContainer{
 		//track mousedown	
 		document.addEventListener('mousedown', (event) => {
 			if(event.button == 0 && event.button != 2){
-				mouseDown = true;
+				this.mouseDown = true;
 			}
 			else if(event.button != 1 && event.button == 2){
-				rightMouseDown = true;
+				this.rightMouseDown = true;
 			}
 		});
 		
@@ -27,70 +36,46 @@ class TileContainer{
 		//track mouseup
 		document.addEventListener('mouseup', (event) => {
 			if(event.button === 0){
-				mouseDown = false;
+				this.mouseDown = false;
 			}
 			else if(event.button === 2){
-				rightMouseDown = false;
+				this.rightMouseDown = false;
 			}
 		});
 			
 			
 		//hover in
 		this.element.addEventListener('mouseover', (event) => {
-			let columnElements = document.getElementsByClassName("ColumnCount");
-			columnElements[this.x].classList.add("SelectedColumn");
-			let rowElements = document.getElementsByClassName("RowCount");
-			rowElements[this.y].classList.add("SelectedRow");
-			//add col coords class
-			let selectedColumn = document.getElementsByClassName("ColPOS-" + this.x);
-			for(let i = 0; i < selectedColumn.length; i++){
-				if(i < this.y)
-				selectedColumn[i].classList.add("SelectedColumn");
-			}
-			//add row coords class
-			let selectedRow = document.getElementsByClassName("RowPOS-" + this.y);
-			for(let i = 0; i < selectedRow.length; i++){
-				if(i < this.x)
-				selectedRow[i].classList.add("SelectedRow");
-			}
-			
-			if (mouseDown && this.element.matches(':hover')) {
+			this.hilightSelectedColumn();
+			this.hilightSelectedRow();
+			if (this.mouseDown && this.element.matches(':hover')) {
 				event.target.children[0].classList.add("Active");
 				if(!event.target.children[0].classList.contains("Moused")){
 					event.target.children[0].classList.add("MouseDown");
 				}
 			}
-				
-			else if(rightMouseDown && this.element.matches(':hover')){
+			else if(this.rightMouseDown && this.element.matches(':hover')){
 				event.target.children[0].classList.remove("Active");
 				event.target.children[0].classList.remove("Moused");
 				event.target.children[0].classList.remove("MouseDown");
+				this.removeTile();
 			}
 		});
 		
 		//unhover
 		this.element.addEventListener("mouseout", (event) => {
-			let columnElements = document.getElementsByClassName("ColumnCount");
-			let rowElements = document.getElementsByClassName("RowCount");
-			rowElements[this.y].classList.remove("SelectedRow");
-			columnElements[this.x].classList.remove("SelectedColumn");
-			let selectedColumn = document.getElementsByClassName("ColPOS-" + this.x)
-			for(let i = 0; i < selectedColumn.length; i++){
-				selectedColumn[i].classList.remove("SelectedColumn");
-			}
-			let selectedRow = document.getElementsByClassName("RowPOS-" + this.y)
-			for(let i = 0; i < selectedRow.length; i++){
-				selectedRow[i].classList.remove("SelectedRow");
-			}
+			this.unHilightSelectedColumn();
+			this.unHilightSelectedRow();
 			if(event.target.children[0].classList.contains("MouseDown")){
 				event.target.children[0].classList.remove("MouseDown");
 				event.target.children[0].classList.add("Moused");
+				this.fillTile();
 			}
 		});
 	
 		//mousedown
 		this.element.addEventListener("mousedown", (event) => {
-			if(mouseDown || event.button == 0){
+			if(this.mouseDown || event.button == 0){
 				event.target.children[0].classList.add("Active");
 				if(!event.target.children[0].classList.contains("Moused")){
 					event.target.children[0].classList.add("MouseDown");
@@ -100,6 +85,7 @@ class TileContainer{
 				event.target.children[0].classList.remove("Active");
 				event.target.children[0].classList.remove("Moused");
 				event.target.children[0].classList.remove("MouseDown");
+				this.removeTile();
 			}
 		});
 		
@@ -108,15 +94,91 @@ class TileContainer{
 			if(event.button == 0){
 				event.target.children[0].classList.remove("MouseDown");
 				event.target.children[0].classList.add("Moused");
+				this.fillTile();
 			}
 		});
 	}
-	
-	constructElement(){
-		let workingContainer = document.createElement("div");
-		workingContainer.classList.add("TileContainer");
-		let workingTile = new Tile(this.x, this.y, this.occupied);
-		workingContainer.appendChild(workingTile.element);
-		return workingContainer;
+
+	fillTile(){
+		if(this.checkValidMove()){
+			gameManager.inputBoard[this.x][this.y] =  1;
+			console.log(gameManager.inputBoard.toString());
+		}
+	}
+
+	checkValidMove(){
+		console.log("Checking " + this.x.toString() + this.y.toString())
+		if(gameManager.puzzle.puzzleShape[this.y][this.x] == 1){
+			console.log("valid move");
+			return true;
+		}
+		else{
+			console.log("invalid move");
+			gameManager.mistakes++;
+			return false;
+		}
+	}
+
+	removeTile(){
+		gameManager.inputBoard[this.x][this.y] =  0;
+	}
+
+	hilightSelectedRow(rowNum){
+		this.hilightRowKey();
+		let selectedRow = document.getElementsByClassName("RowPOS-" + this.y);
+		for(let i = 0; i < selectedRow.length; i++){
+			if(i < this.x)
+			selectedRow[i].classList.add("SelectedRow");
+		}
+		
+	}
+
+	hilightSelectedColumn(colNum){
+		this.hilightColumnKey();
+		let selectedColumn = document.getElementsByClassName("ColPOS-" + this.x);
+		for(let i = 0; i < selectedColumn.length; i++){
+			if(i < this.y)
+			selectedColumn[i].classList.add("SelectedColumn");
+		}
+	}
+
+	unHilightSelectedRow(rowNum){
+		this.unHilightRowKey();
+		let selectedRow = document.getElementsByClassName("RowPOS-" + this.y)
+		for(let i = 0; i < selectedRow.length; i++){
+			selectedRow[i].classList.remove("SelectedRow");
+		}
+	}
+
+	unHilightSelectedColumn(colNum){
+		this.unHilightColumnKey();
+		let selectedColumn = document.getElementsByClassName("ColPOS-" + this.x)
+		for(let i = 0; i < selectedColumn.length; i++){
+			selectedColumn[i].classList.remove("SelectedColumn");
+		}
+	}
+
+	hilightColumnKey(colNum){
+		let columnElements = document.getElementsByClassName("ColumnCount");
+		columnElements[this.x].classList.add("SelectedColumn");
+	}
+
+	hilightRowKey(rowNum){
+		let rowElements = document.getElementsByClassName("RowCount");
+		rowElements[this.y].classList.add("SelectedRow");
+	}
+
+	unHilightColumnKey(colNum){
+		let columnElements = document.getElementsByClassName("ColumnCount");
+		columnElements[this.x].classList.remove("SelectedColumn");
+	}
+
+	unHilightRowKey(rowNum){
+		let rowElements = document.getElementsByClassName("RowCount");
+		rowElements[this.y].classList.remove("SelectedRow");
+	}
+
+	setPos(){
+
 	}
 }

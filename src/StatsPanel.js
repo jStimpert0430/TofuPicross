@@ -9,11 +9,11 @@ class StatsPanel{
 		element.classList.add("StatsBox")
 		let elementLevelText = document.createElement("div");
 		elementLevelText.classList.add("Timer");
-		elementLevelText.appendChild(document.createTextNode(targetPuzzle.puzzleName))
+		elementLevelText.appendChild(document.createTextNode(gameManager.puzzle.puzzleName))
 		element.appendChild(elementLevelText)
 		let elementMistakesText = document.createElement("div");
 		elementMistakesText.classList.add("Mistakes");
-		elementMistakesText.appendChild(document.createTextNode("Mistakes: 0"))
+		elementMistakesText.appendChild(document.createTextNode("Mistakes: " + gameManager.mistakes))
 		element.appendChild(elementMistakesText)
 		let elementTimerText = document.createElement("div");
 		elementTimerText.classList.add("Timer");

@@ -1,18 +1,43 @@
 class GameManager{
 	constructor(){
-		let timeSeconds = 30;
-		let timeMinutes = 0;
-		let timeHours = 0;
-		let levelName = "NoName";
-		let mistakes = 0;
-		let puzzle = new Puzzle();
-		let inputBoard = [];
-		let cursotY = 0;
-		let cursorX = 0;
+		this.timeSeconds = 30;
+		this.timeMinutes = 0;
+		this.timeHours = 0;
+		this.mistakes = 0;
+		this.cursorY = 0;
+		this.cursorX = 0;
+		this.state = "idle";
+		this.puzzle = new Puzzle();
+		this.inputBoard = [];
+		this.gameUI = "";
+		this.populateInputBoard(this.inputBoard);
+	}
+
+	initGame(){
+		this.cursorY = 0;
+		this.cursorX = 0;
+		this.puzzle = new Puzzle();
+		this.inputBoard = [];
+		this.populateInputBoard(this.inputBoard);
+		this.gameUI = new UI(gameManager.puzzle);
+		//create puzzle based on level id selected
+		//create game UI
+		//create game controller
+		//bind controller to UI
+		//display ready button
+		//create and start game loop
+	}
+
+	populateInputBoard(inputBoard){
 		for(let i = 0; i < 10; i++){
+			let workingRow = [];
 			for(let j = 0; j < 10; j++){
-				inputBoard.push(0);
-			}	
+				workingRow.push(0);
+			}
+			inputBoard.push(workingRow);	
 		}
 	}
+
+
+
 }

@@ -1,6 +1,6 @@
 class Puzzle{
     constructor(size){
-		this.puzzleName = "Level 1";
+		this.puzzleName = "Level 3";
 		this.puzzleTimeLimitHours = 0;
 		this.puzzleTimeLimitMinutes = 30;
 		this.puzzleSize = 5;
