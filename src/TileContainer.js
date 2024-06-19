@@ -12,7 +12,8 @@ class TileContainer{
 		document.addEventListener('contextmenu', function(ev) {
 			ev.preventDefault();
 		});
-			
+		
+		//track mousedown	
 		document.addEventListener('mousedown', (event) => {
 			if(event.button == 0 && event.button != 2){
 				mouseDown = true;
@@ -22,6 +23,8 @@ class TileContainer{
 			}
 		});
 		
+		
+		//track mouseup
 		document.addEventListener('mouseup', (event) => {
 			if(event.button === 0){
 				mouseDown = false;

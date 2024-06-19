@@ -24,9 +24,9 @@ body{
     border: 2px rgb(12, 12, 12) solid;
     background-color: rgb(19, 22, 24);
     display: grid;
-    grid-template-columns: 20vmax repeat(5, 3vmax) 0.1vmax repeat(5, 3vmax);
-    grid-template-rows: 15vmax repeat(5, 3vmax) 0.1vmax repeat(5, 3vmax);
-    grid-gap: 0.25vmax;
+    grid-template-columns: 20vmax repeat(5, 5vmax) 0.1vmax repeat(5, 5vmax);
+    grid-template-rows: 15vmax repeat(5, 5vmax) 0.1vmax repeat(5, 5vmax);
+    grid-gap: 0.4vmax;
 }
 
 .LeftPanel{
@@ -238,7 +238,7 @@ body{
 
 
 .Tile.Active{
-    border-radius: 0.2vw;
+    border-radius: 0.5vw;
     background-color: antiquewhite;
 }
 
@@ -256,8 +256,17 @@ body{
     outline: 0.3vmax solid #a1b883;
       animation: selectorColor 0.5s infinite alternate;
       	animation-timing-function:ease-out;
+      	
     /*background-color: antiquewhite;*/
     /*background:linear-gradient(rgb(231, 220, 199),rgb(117, 111, 99));*/
+}
+
+.TileContainer:hover .Tile.Active{
+	border-radius: 0.5vw;
+	/*border-style: solid;
+	border-color: #a1b883;
+    border-width: 3px;
+        box-sizing: border-box;*/
 }
 
 .TileContainer:hover{
@@ -269,7 +278,8 @@ body{
 	transition: 0.1s;
 	box-shadow: 0 0 2vmax black;
 	outline: 0.3vmax solid #a1b883;
-	animation: none;
+	      animation: selectorColor 0.5s infinite alternate;
+      	animation-timing-function:ease-out;
 	transform:scale(1);
 }
 
@@ -284,7 +294,7 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
-    font-size: 2vmax;
+    font-size: 2.5vmax;
     background-color: rgb(43, 50, 56);
     color: white;
     font-family: 'Audiowide', serif;
@@ -312,7 +322,7 @@ body{
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    font-size: 2vmax;
+    font-size: 2.5vmax;
     letter-spacing: 1vmax;
     color: white;
     background-color: rgb(43, 50, 56);
@@ -422,17 +432,21 @@ body{
     100%{
       background-position:300vw -300vw;
     }
+    }
     
     
     @keyframes selectorColor {
   from{
-    outline-color: #a1b883;
+    outline-color: #53712c;
+    border-color: #53712c;
+
   }
   to {
-    outline-color: #FFFFFF;
+    outline-color: #c3d1b0;
+    border-color: #c3d1b0;
+
   }
 }
-  }
   
       @-moz-keyframes selectorColor {
   from{
@@ -442,4 +456,3 @@ body{
     outline-color: #c3d1b0;
   }
 }
-  }

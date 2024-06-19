@@ -1,2 +1,5 @@
+var gameManager = new GameManager(); //Globally tracks gamestate -> needs currentTime, misses, currentPuzzle, state, 
+
+
 myPuzzle = new Puzzle();
-thisUI = new UI(myPuzzle);
+UImanager = new UI(myPuzzle);
