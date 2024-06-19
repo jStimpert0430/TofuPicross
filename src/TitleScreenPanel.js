@@ -2,6 +2,14 @@ class TitleScreenPanel{
     constructor(){
         this.element = this.constructElement();
         document.body.appendChild(this.element);
+
+		document.getElementsByClassName("UI")[0].addEventListener('click', (event) => {
+			if(event.button == 0 && event.button != 2){
+                document.getElementsByClassName("UI")[0].remove();
+                gameManager.initGame();
+			}
+		});
+
     }
     constructElement(){
         let element = document.createElement("div");
@@ -10,7 +18,7 @@ class TitleScreenPanel{
         titlePanel.classList.add("TitlePanel");
         let titleText = document.createElement("div");
         titleText.classList.add("TitleText");
-        titleText.innerHTML = "TO<br>FU"
+        titleText.innerHTML = "to<br>fu"
         titlePanel.appendChild(titleText);
         let titleTextsub = document.createElement("div");
         titleTextsub.classList.add("TitleTextSub");
@@ -22,5 +30,9 @@ class TitleScreenPanel{
         titlePanel.appendChild(startText);
         element.appendChild(titlePanel);
         return element;
+    }
+
+    nextScreen(){
+
     }
 }
