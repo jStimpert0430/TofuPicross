@@ -10,7 +10,6 @@ class GameManager{
 		this.puzzle = new Puzzle();
 		this.inputBoard = [];
 		this.gameUI = "";
-		this.populateInputBoard(this.inputBoard);
 	}
 
 	initGame(){
@@ -26,6 +25,10 @@ class GameManager{
 		//bind controller to UI
 		//display ready button
 		//create and start game loop
+	}
+
+	initTitleScreen(){
+		this.titleScreenUI = new TitleScreenPanel()
 	}
 
 	populateInputBoard(inputBoard){

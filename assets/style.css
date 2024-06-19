@@ -17,6 +17,32 @@ body{
     overflow: hidden;
 
 }
+
+.TitlePanel{
+}
+
+.TitleText{
+  color: white;
+  font-size: 10vmax;
+  line-height: 8vh;
+  background-color: #000e21;
+  border: 8px white solid;
+  padding: 10px;
+}
+
+.TitleTextSub{
+  color: white;
+  font-size: 2.5vmax;
+  text-align: center;
+}
+
+.StartText{
+  padding-top:10vh;
+  color:white;
+  font-size: 2vmax;
+  text-align: center;
+}
+
 .Grid{
     box-shadow: 0 0 5vmax black;
     padding: 0.8vmax;
