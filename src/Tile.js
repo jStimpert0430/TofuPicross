@@ -21,5 +21,3 @@ class Tile{
         return element
     }
 }
-
-

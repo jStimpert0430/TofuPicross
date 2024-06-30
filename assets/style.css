@@ -24,10 +24,10 @@ body{
 .TitleText{
   color: white;
   font-size: 10vmax;
-  line-height: 8vh;
+  line-height: 8vmax;
   background-color: #000e21;
   border: 8px white solid;
-  padding: 10px;
+  padding: 1vmax;
 
 }
 
@@ -54,9 +54,9 @@ body{
     border: 2px rgb(12, 12, 12) solid;
     background-color: rgb(19, 22, 24);
     display: grid;
-    grid-template-columns: 20vmax repeat(5, 5vmax) 0.1vmax repeat(5, 5vmax);
-    grid-template-rows: 15vmax repeat(5, 5vmax) 0.1vmax repeat(5, 5vmax);
-    grid-gap: 0.4vmax;
+    grid-template-columns: 20vmax repeat(5, 3vmax) 0.1vmax repeat(5, 3vmax);
+    grid-template-rows: 15vmax repeat(5, 3vmax) 0.1vmax repeat(5, 3vmax);
+    grid-gap: 0.3vmax;
 }
 
 .LeftPanel{

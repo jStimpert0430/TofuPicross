@@ -40,7 +40,4 @@ class GameManager{
 			inputBoard.push(workingRow);	
 		}
 	}
-
-
-
 }
