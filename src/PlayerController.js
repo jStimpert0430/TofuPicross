@@ -1,7 +1,31 @@
 class PlayerController{
     constructor(){
-        this.pos.x = 0;
-        this.pos.y = 0;
+        this.posx = 0;
+        this.posy = 0;
+        this.bindInputs();
     }
+    
+    bindInputs(){
+		document.onkeydown = function(event) {
+			switch (event.keyCode){
+				case 37:
+				//leftkey
+				console.log("leftkey");
+				break;
+				case 38:
+				console.log("upKey");
+				//upkey
+				break;
+				case 39:
+				console.log("rightkey");
+				//rightKey
+				break;
+				case 40:
+				//downkey
+				console.log("downkey");
+				break;
+			}
+		}
+	}
 
 }

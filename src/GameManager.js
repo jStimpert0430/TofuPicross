@@ -19,6 +19,7 @@ class GameManager{
 		this.inputBoard = [];
 		this.populateInputBoard(this.inputBoard);
 		this.gameUI = new UI(gameManager.puzzle);
+		this.controller = new PlayerController();
 		//create puzzle based on level id selected
 		//create game UI
 		//create game controller
