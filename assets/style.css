@@ -96,7 +96,7 @@ body{
 
 .RightPanel.Active{
     transition: 0.2s;
-    padding-right: 15vw;
+    padding-right: 25vw;
     background-color: rgba(0, 0, 0, 0.684);
 }
 

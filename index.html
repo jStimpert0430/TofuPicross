@@ -31,19 +31,4 @@
   <script src="src/GameManager.js"></script>
   <script src="src/Game.js"></script>
   <script src="main.js"></script>
-  <script>
-    let workingElement = document.getElementsByClassName("CircleButton")[0];
-
-    workingElement.addEventListener("click", function(){
-      let workingPanelElement = document.getElementsByClassName("RightPanel")[0];
-      if(!workingPanelElement.classList.contains("Active")){
-        workingPanelElement.classList.add("Active");
-        workingElement.innerHTML = ">"
-      }
-      else{
-        workingPanelElement.classList.remove("Active");
-        workingElement.innerHTML = "<";
-      }
-    })
-  </script>
 </html>
