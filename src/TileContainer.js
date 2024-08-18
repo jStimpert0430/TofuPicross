@@ -50,6 +50,7 @@ class TileContainer{
 			this.hilightSelectedRow();
 			if (this.mouseDown && this.element.matches(':hover')) {
 				event.target.children[0].classList.add("Active");
+			    event.target.children[0].innerHTML = "";
 				if(!event.target.children[0].classList.contains("Moused")){
 					event.target.children[0].classList.add("MouseDown");
 				}
@@ -58,6 +59,7 @@ class TileContainer{
 				event.target.children[0].classList.remove("Active");
 				event.target.children[0].classList.remove("Moused");
 				event.target.children[0].classList.remove("MouseDown");
+				event.target.children[0].innerHTML = "";
 				this.removeTile();
 			}
 		});
@@ -77,15 +79,21 @@ class TileContainer{
 		this.element.addEventListener("mousedown", (event) => {
 			if(this.mouseDown || event.button == 0){
 				event.target.children[0].classList.add("Active");
+				event.target.children[0].innerHTML = "";
 				if(!event.target.children[0].classList.contains("Moused")){
 					event.target.children[0].classList.add("MouseDown");
 				}
+				
 			}
 			else if(event.button == 2){
 				event.target.children[0].classList.remove("Active");
 				event.target.children[0].classList.remove("Moused");
 				event.target.children[0].classList.remove("MouseDown");
 				this.removeTile();
+				event.target.children[0].innerHTML = "";
+			}
+			else if(event.button == 1){
+				event.target.children[0].innerHTML = "⨯";
 			}
 		});
 		
